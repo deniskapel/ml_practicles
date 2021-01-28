@@ -1,6 +1,6 @@
 # These are notes for the task
 
-## Task 2
+## Task 2 ## 
 
     rating   easy     ai  systems  theory  morning     ok
 0        2   True   True    False    True    False   True
@@ -25,7 +25,7 @@
 19      -2   True  False     True   False     True  False
 
 
-## Task 3
+## Task 3 ##
 The best feature for the whole dataset is **systems**.
 Following, we make a correct prediction 90% of the time.
 
@@ -33,7 +33,7 @@ The worst one is **easy**.
 Following, we make a correct prediction 60% of the time
 
 
-## Task 4
+## Task 4 ##
 The trained tree performs 5% better than a single feature classifier
 [the same dataset to test on zero/one loss function].
 
@@ -46,7 +46,7 @@ The solution might be to shuffle features every time
 **Performance**
 loss = 1/20 for model vs loss = 2/20 max for single features
 
-## Task 5
+## Task 5 ##
 The performance stops rising after level 4,
 so no point to train a larger model.
 
