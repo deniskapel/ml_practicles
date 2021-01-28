@@ -1,29 +1,4 @@
-# These are notes for the task
-
-## Task 2 ## 
-
-    rating   easy     ai  systems  theory  morning     ok
-0        2   True   True    False    True    False   True
-1        2   True   True    False    True    False   True
-2        2  False   True    False   False    False   True
-3        2  False  False    False    True    False   True
-4        2  False   True     True   False     True   True
-5        1   True   True    False   False    False   True
-6        1   True   True    False    True    False   True
-7        1  False   True    False    True    False   True
-8        0  False  False    False   False     True   True
-9        0   True  False    False    True     True   True
-10       0  False   True    False    True    False   True
-11       0   True   True     True    True     True   True
-12      -1   True   True     True   False     True  False
-13      -1  False  False     True    True    False  False
-14      -1  False  False     True   False     True  False
-15      -1   True  False     True   False     True  False
-16      -2  False  False     True    True    False  False
-17      -2  False   True     True   False     True  False
-18      -2   True  False     True   False    False  False
-19      -2   True  False     True   False     True  False
-
+# These are notes for some of the tasks
 
 ## Task 3 ##
 The best feature for the whole dataset is **systems**.
