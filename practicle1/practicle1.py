@@ -3,13 +3,13 @@ from Tree import Tree
 from DecisionTreeTrain import DecisionTreeTrain
 from DecisionTreeTest import DecisionTreeTest
 
-def zero_one_loss(tree, test, labels):
+def zero_one_loss(tree, test_set, labels):
     loss = 0
     for i, label in enumerate(labels):
-        if label != DecisionTreeTest(tree, test.iloc[[i]]).predict():
+        if label != DecisionTreeTest(tree, test_set.iloc[[i]]).predict():
             loss += 1
 
-    print(loss)
+    return loss
 
 """
     Task 1
@@ -40,29 +40,33 @@ print(df, '\n')
     Task 3
 """
 features = list(df.columns[1:-1])
-train = DecisionTreeTrain(df)
+train = DecisionTreeTrain()
 
-print(train.best_feature(train.data, 'ok', features),
+print(train.top_feature(df,'ok', features, max),
       ' is the best\n')
-print(train.worst_feature(train.data, 'ok', features),
+print(train.top_feature(df, 'ok', features, min),
       ' is the worst\n')
 
 """
   Task 4
 """
-single_feature_trees = [DecisionTreeTrain(df).build_tree([feature]) for feature in features]
-decision_tree = train.build_tree(features, 4)
+single_feature_trees = [DecisionTreeTrain().build_tree(df, [feature]) for feature in features]
+decision_tree = train.build_tree(df, features, 4)
 labels = list(df.ok)
 print(decision_tree, '\n')
 
 
 print('\nThis is the performance comparison: single features vs overall (last)')
-[zero_one_loss(tree, df, labels) for tree in (single_feature_trees + [decision_tree])]
+print(
+      [zero_one_loss(tree, df, labels) for tree in (single_feature_trees + [decision_tree])]
+      )
 
 
 """
     Task 5
 """
 print('\nThis is the tree performance comparison: from single row to max')
-diff_depth = [DecisionTreeTrain(df).build_tree(features, depth) for depth in range(2,8)]
-[zero_one_loss(tree, df, labels) for tree in diff_depth]
+diff_depth = [DecisionTreeTrain().build_tree(df, features, depth) for depth in range(3,8)]
+print(
+      [zero_one_loss(tree, df, labels) for tree in diff_depth]
+      )

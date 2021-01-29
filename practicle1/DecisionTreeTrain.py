@@ -4,51 +4,46 @@ from random import shuffle
 
 class DecisionTreeTrain():
 
-    def __init__(self, data):
-        self.data = data
+    def build_tree(self, data, features_left, maxdepth=2):
+        guess = self.guess(data) # get the most common label
 
-    def build_tree(self, features, maxdepth=2):
-        guess = self.guess(self.data) # get the most common label
-
-        if self.is_unambiguous(self.data, 'ok'):
+        if self.is_unambiguous(data, 'ok'):
             return guess
 
-        elif len(features) == 0:
+        elif len(features_left) == 0:
             return guess
 
         else:
             if maxdepth < 2:
                 return guess
 
-            feat = self.best_feature(self.data, 'ok', features)
+            best = self.top_feature(data, 'ok', features_left)
 
-            if self.is_unambiguous(self.data, feat):
+            if self.is_unambiguous(data, best):
                 # first check that the data in the featured column is not uniform
                 return guess
 
-            remaining_features = [feature for feature in features if feature != feat]
+            features_left = [feat for feat in features_left if feat != best]
 
-            right = DecisionTreeTrain(self.data[self.data[feat] == True])
-
-            left = DecisionTreeTrain(self.data[self.data[feat] == False])
-
-            return Tree(data='is_%s' % (feat),
-                        left=left.build_tree(remaining_features,
-                                             (maxdepth-1)),
-                        right=right.build_tree(remaining_features,
-                                               (maxdepth-1)))
+            return Tree(data='is_%s' % (best),
+                        left=DecisionTreeTrain().build_tree(
+                            data[data[best] == False],
+                            features_left,
+                            (maxdepth-1)),
+                        right=DecisionTreeTrain().build_tree(
+                            data[data[best] == True],
+                            features_left,
+                            (maxdepth-1)))
 
     def guess(self, data) -> Tree:
         """ returns a most frequent value in a current dataset as a Leaf """
-        if len(data) > 0:
-            return Tree.leaf(data.ok.value_counts().idxmax())
-
-        return None
+        return Tree.leaf(data.ok.value_counts().idxmax())
 
 
     def is_unambiguous(self, data, feature) -> bool:
         """ check if there are no other options"""
         return len(data[feature].value_counts().keys()) == 1
+
 
     def single_feature_score(self, data, goal, feature) -> float:
         """ calculates a ratio of correct / total answers """
@@ -61,14 +56,11 @@ class DecisionTreeTrain():
 
         return (left + right) / len(data)
 
-    def best_feature(self, data, goal, features) -> str:
-        """ returns the feature with the highest score"""
-        return max(
-            features, key=lambda f: self.single_feature_score(data, goal, f)
-            )
 
-    def worst_feature(self,data, goal, features) -> str:
-        """ returns a feature with the lowest score """
-        return min(
+    def top_feature(self, data, goal, features,  func=max) -> str:
+        """
+            returns the feature with the highest (by default) or lowest score
+        """
+        return func(
             features, key=lambda f: self.single_feature_score(data, goal, f)
             )
