@@ -13,27 +13,25 @@ class DecisionTreeTrain():
         elif len(features_left) == 0:
             return guess
 
-        else:
-            if maxdepth < 2:
-                return guess
+        if maxdepth < 2:
+            return guess
 
-            best = self.top_feature(data, 'ok', features_left)
+        best = self.top_feature(data, 'ok', features_left)
 
-            if self.is_unambiguous(data, best):
-                # first check that the data in the featured column is not uniform
-                return guess
+        # necessary if the potential maximum depth of the tree is unknown
+        if self.is_unambiguous(data, best):
+            return guess
 
-            features_left = [feat for feat in features_left if feat != best]
+        features_left = [feat for feat in features_left if feat != best]
 
-            return Tree(data='is_%s' % (best),
-                        left=DecisionTreeTrain().build_tree(
-                            data[data[best] == False],
-                            features_left,
-                            (maxdepth-1)),
-                        right=DecisionTreeTrain().build_tree(
-                            data[data[best] == True],
-                            features_left,
-                            (maxdepth-1)))
+        return Tree(data='is_%s' % (best),
+                    left=self.build_tree(data[data[best] == False],
+                                         features_left,
+                                         (maxdepth-1)),
+                    right=self.build_tree(data[data[best] == True],
+                                          features_left,
+                                          (maxdepth-1)))
+
 
     def guess(self, data) -> Tree:
         """ returns a most frequent value in a current dataset as a Leaf """

@@ -50,13 +50,15 @@ print(train.top_feature(df, 'ok', features, min),
 """
   Task 4
 """
-single_feature_trees = [DecisionTreeTrain().build_tree(df, [feature]) for feature in features]
+single_feature_trees = [train.build_tree(df, [feature]) for feature in features]
 decision_tree = train.build_tree(df, features, 4)
 labels = list(df.ok)
 print(decision_tree, '\n')
+print("Tree's depth is ", decision_tree.depth(), '\n')
 
 
-print('\nThis is the performance comparison: single features vs overall (last)')
+
+print('\nThe performance comparison: single features vs overall (last)')
 print(
       [zero_one_loss(tree, df, labels) for tree in (single_feature_trees + [decision_tree])]
       )
@@ -65,8 +67,8 @@ print(
 """
     Task 5
 """
-print('\nThis is the tree performance comparison: from single row to max')
-diff_depth = [DecisionTreeTrain().build_tree(df, features, depth) for depth in range(3,8)]
+print('\nThe performance comparison: from random_balanced_choice to to max.\n')
+diff_depth = [train.build_tree(df, features, depth) for depth in range(1,7)]
 print(
       [zero_one_loss(tree, df, labels) for tree in diff_depth]
       )
