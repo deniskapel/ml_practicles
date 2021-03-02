@@ -63,7 +63,7 @@ Scipy is more effective as well. It also uses a fixed amount of allocated memory
     Total allocated size: 23.7 KiB
 ```
 
-**Quality** to be completed when the function is ready
+**Quality**
 ```python3
 python3 compare_quality.py
 ```
