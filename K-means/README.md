@@ -14,7 +14,7 @@ It creates [plots](plots/) for easy_true, medium_true and hard_true problems gen
 python3 cluster_points.py
 ```
 
-Plots are saved into [plots folder](plots/) with the number of iterations indicated in the plot title. Clusters might have different shapes (e.g. medium_100_reshaped.pdf) but generally clusters are formed properly
+Plots are saved into [plots folder](plots/) with the number of iterations indicated in the plot title. Clusters might have different shapes (e.g. [medium_100_reshaped.pdf](plots/medium_100_reshaped.pdf)) but generally clusters are formed properly
 
 ### Task 3 Study the performance of these two implementations: memory, speed, quality; compare against scipy.cluster.vq.kmeans.
 
