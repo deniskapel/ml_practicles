@@ -2,3 +2,4 @@
 
 Practicles:
 * [Decision Trees](https://github.com/deniskapel/ml_practicles/tree/master/practicle1)
+* [Kmeans](https://github.com/deniskapel/ml_practicles)
