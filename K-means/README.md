@@ -6,7 +6,7 @@
 python3 problem_generator.py
 ```
 
-It creates [plots](plots/) for easy, hard and insane problems generated for further tasks.
+It creates [plots](plots/) for easy_true, medium_true and hard_true problems generated for further tasks.
 
 ## Task 2 Implement K-means clustering as shown in Daumé. Replot your problems at 5 stages (random initialisation, 25%, 50%, 75%, 100% of iterations), using colours to assign points to clusters. The easy problem plots might look like the coloured plots in figure 3.14 from Daumé.
 
