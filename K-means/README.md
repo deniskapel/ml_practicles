@@ -14,7 +14,7 @@ It creates [plots](plots/) for easy, hard and insane problems generated for furt
 python3 cluster_points.py
 ```
 
-Plots are saved into [plots folder](/plots) with number of iterations indicated in the plot title. Clusters might have different shapes (e.g. medium_100_reshaped.pdf) but generally clusters are formed properly
+Plots are saved into [plots folder](plots/) with the number of iterations indicated in the plot title. Clusters might have different shapes (e.g. medium_100_reshaped.pdf) but generally clusters are formed properly
 
 ### Task 3 Study the performance of these two implementations: memory, speed, quality; compare against scipy.cluster.vq.kmeans.
 
@@ -93,4 +93,4 @@ The graph for performance over iterations available in [plots folder](plots/iter
 python3 crossvalidate.py
 ```
 
-The graph is avaible [here](/plots/batches.pdf). The results on some splits get to 90% while the others decrease to 70. Since each run, the performance varies (sometimes significantly), it might be more informatice If the splits are fixed and more balanced in terms of cluster distribution.
+The graph is avaible [here](plots/batches.pdf). The results on some splits get to 90% while the others decrease to 70. Since each run, the performance varies (sometimes significantly), it might be more informatice If the splits are fixed and more balanced in terms of cluster distribution.
