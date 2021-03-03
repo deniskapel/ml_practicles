@@ -3,3 +3,4 @@
 Practicles:
 * [Decision Trees](practicle1/)
 * [Kmeans](K-means/)
+* [Perceptron](Perceptron/)
