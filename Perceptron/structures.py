@@ -2,6 +2,9 @@ from typing import Union, List
 from math import sqrt
 
 
+Dataset = List[tuple]
+
+
 class Scalar:
     pass
 
