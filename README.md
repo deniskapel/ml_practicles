@@ -1,6 +1,6 @@
 # This is the repository with practicals for HSE course Introduction to Machine Learning
 
 Practicles:
-* [Decision Trees](practicle1/)
+* [Decision Trees](DecisionTrees/)
 * [Kmeans](K-means/)
 * [Perceptron](Perceptron/)
