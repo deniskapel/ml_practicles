@@ -4,7 +4,7 @@
 ```python3
     run basic_operations.py
 ```
-The [files](basic_operations.py) prints out results of all basic operations for two classes
+The [basic_operations.py](basic_operations.py) prints out results of all basic operations for two classes stored in [structures.py](structures.py)
 
 ## Task 2 Implement the PerceptronTrain and PerceptronTest functions, using your Vector and Scalar classes. Do not permute the dataset when training; run through it linearly.
 
