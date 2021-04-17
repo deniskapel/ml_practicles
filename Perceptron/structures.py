@@ -75,7 +75,14 @@ class Vector:
             raise TypeError
         if not self.__len__() == other.__len__():
             raise ValueError
-        return Vector(*[x+y for x, y in zip(self.entries, other.entries)])
+        return Vector(*[x + y for x, y in zip(self.entries, other.entries)])
+
+    def __sub__(self: Vector, other: Vector) -> Vector:
+        if not isinstance(other, Vector):
+            raise TypeError
+        if not self.__len__() == other.__len__():
+            raise ValueError
+        return Vector(*[x-y for x, y in zip(self.entries, other.entries)])
 
     def __mul__(self: Vector, other: Vector) -> Scalar:
         if not isinstance(other, Vector):
