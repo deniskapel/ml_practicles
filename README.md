@@ -4,3 +4,4 @@ Practicles:
 * [Decision Trees](DecisionTrees/)
 * [Kmeans](K-means/)
 * [Perceptron](Perceptron/)
+* [Support vector machines](SVM/)
