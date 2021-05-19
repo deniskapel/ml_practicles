@@ -1,5 +1,5 @@
 from dataset import x_plus, x_minus, X
-from svm_utils import svm, svm_loss, gradient_svm_loss, hyperplane
+from utils import svm, svm_loss, gradient_svm_loss, hyperplane
 import matplotlib.pyplot as plt
 from AveragedPerceptron import AveragedPerceptronTrain
 
@@ -15,10 +15,10 @@ weights, bias = svm(svm_loss, X)
 xx, yy = hyperplane(weights, bias, xlim, ylim)
 plt.plot(xx, yy, color='grey', label='SVM without gradient')
 
-# # support vector machine with gradient
-# weights, bias = svm(svm_loss, X, jac=gradient_svm_loss)
-# xx, yy = hyperplane(weights, bias, xlim, ylim)
-# plt.plot(xx, yy, color='brown', label='SVM with gradient')
+# support vector machine with gradient
+weights, bias = svm(svm_loss, X, use_gradient=gradient_svm_loss)
+xx, yy = hyperplane(weights, bias, xlim, ylim)
+plt.plot(xx, yy, color='brown', label='SVM with gradient')
 
 
 plt.scatter(

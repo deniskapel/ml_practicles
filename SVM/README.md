@@ -10,8 +10,4 @@ The function `svm_loss`, `svm` and `gradient_svm_loss` is in [here](utils.py).
 
 Two isolated clusters are generated in [here](dataset.py). [An averaged perceptron](AveragedPerceptron.py) is taken from the previous practical, though it was modified to use numpy instead of self-design data stractures.
 
-The [graph](svm-svm-perceptron.pdf) demonstrates
-
-
-
-
+The [graph](svm-svm-perceptron.pdf) demonstrates the result of three approaches. All three split the data properly, though averaged perceptron is less stable in terms of its padding. SVM and SVM_with_gradient show very similar results (same if initial bias and weights are hard coded) but the gradient function helps the algorithm converge faster.
