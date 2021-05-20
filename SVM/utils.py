@@ -24,7 +24,7 @@ def svm_loss(weights_and_bias: float, D: list, C: int = 1):
     w = weights_and_bias[0:2]
     b = weights_and_bias[2]
 
-    large_margin = 0.5 * numpy.linalg.norm(w)**2
+    large_margin = 0.5 * numpy.dot(w, w)
 
     loss = 0
     for pair in D:
@@ -46,13 +46,7 @@ def svm(f_to_minimize, D, C=1, use_gradient=False):
         using the svm_loss function
     """
     x0 = numpy.random.rand(3)  # x0[0:2] weights, x0[2] bias
-
-    if use_gradient != False:
-        res = minimize(f_to_minimize, x0, args=(D, C)).x
-    else:
-        res = minimize(f_to_minimize, x0, args=(D, C),
-                       jac=use_gradient).x
-
+    res = minimize(f_to_minimize, x0, args=(D, C), jac=use_gradient).x
     return res[0:2], res[2]
 
 

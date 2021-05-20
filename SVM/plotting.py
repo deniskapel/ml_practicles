@@ -37,6 +37,6 @@ plt.scatter(
 plt.xlabel('x-axis', fontsize=12)
 plt.ylabel('y-axis', fontsize=12)
 plt.legend()
-plt.show()
+# plt.show()
 
-# plt.savefig("svm-svm-perceptron.pdf")
+plt.savefig("svm-svm-perceptron.pdf")

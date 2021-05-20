@@ -13,6 +13,6 @@ def df(x):
 n = numpy.random.randint(-1000, 1000)
 print(n, '\n')
 
-print(scipy.optimize.minimize(f, n, jac=df).x)
+print(scipy.optimize.minimize(f, n, jac=df))
 print('\n')
-print(scipy.optimize.minimize(f, n, jac=False).x)
+print(scipy.optimize.minimize(f, n, jac=False))
